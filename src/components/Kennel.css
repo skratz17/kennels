@@ -26,8 +26,6 @@ h6 {
 
 p {
   margin-bottom: 1.5em;
-  color: #d6fcff;
-  color: darkslateblue;
 }
 
 strong {
@@ -36,4 +34,15 @@ strong {
 
 address {
   margin: 0 0 1.5em;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1rem;
 }
