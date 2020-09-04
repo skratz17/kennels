@@ -46,3 +46,16 @@ address {
   margin: 1rem;
   padding: 1rem;
 }
+
+.btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
+.btn--create {
+  background-color: #0cc70c;
+}
