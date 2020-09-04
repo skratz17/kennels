@@ -20,6 +20,17 @@ export const EmployeeForm = props => {
     getAnimals();
   }, []);
 
+  const createEmployee = () => {
+    const employee = {
+      name: employeeName,
+      locationId: location,
+      animalId: animal
+    };
+
+    addEmployee(employee)
+      .then(() => props.history.push('/employees'));
+  };
+
   return (
     <form className="employeeForm">
       <h2 className="employeeForm__title">New Employee</h2>
@@ -40,7 +51,7 @@ export const EmployeeForm = props => {
         <Select placeholder="Choose an employee"
           items={locations}
           value={location}
-          onChange={e => setLocation(e.target.value)}
+          onChange={e => setLocation(parseInt(e.target.value))}
           className="employeeForm__location" />
       </FormGroup>
 
@@ -49,7 +60,7 @@ export const EmployeeForm = props => {
         <Select placeholder="Choose an animal"
           items={animals}
           value={animal}
-          onChange={e => setAnimal(e.target.value)}
+          onChange={e => setAnimal(parseInt(e.target.value))}
           className="employeeForm__animal" />
       </FormGroup>
 
@@ -57,7 +68,7 @@ export const EmployeeForm = props => {
         type="submit"
         onClick={e => {
           e.preventDefault();
-          console.log('new employee')
+          createEmployee();
         }}>
           Save Employee
       </button>

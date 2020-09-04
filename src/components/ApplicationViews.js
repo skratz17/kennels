@@ -41,9 +41,7 @@ export const ApplicationViews = props => (
           <Route exact path="/employees">
             <EmployeeList />
           </Route>
-          <Route exact path="/employees/create">
-            <EmployeeForm />
-          </Route>
+          <Route exact path="/employees/create" render={props => <EmployeeForm {...props} />} />
         </AnimalProvider>
       </LocationProvider>
     </EmployeeProvider>
