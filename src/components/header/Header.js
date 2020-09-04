@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Header = () => (
-  <header class="header">
+  <header className="header">
     <h2>Nashville Kennels</h2>
     <small>Loving care when you're not there.</small>
     <address>
