@@ -1,8 +1,10 @@
 import React from 'react';
 
-export const Select = ({ className, value, onChange, placeholder, items }) => {
+export const Select = ({ className, value, onChange, placeholder, items, name, id }) => {
   return (
     <select className={`select ${className || ''}`}
+      id={id}
+      name={name}
       value={value}
       onChange={onChange}>
         <option value="" disabled>{placeholder}</option>

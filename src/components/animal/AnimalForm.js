@@ -19,11 +19,29 @@ export const AnimalForm = props => {
   }, []);
 
   const handleFormChange = e => {
+    const field = e.target.name;
+    let value = e.target.value;
+    if(field === 'customerId' || field === 'locationId') value = parseInt(value);
 
+    setFormValues(prevFormValues => ({
+      ...prevFormValues,
+      [field]: value
+    }));
   };
 
   const createAnimal = () => {
-    
+    if(validateFormValues()) {
+      addAnimal(formValues)
+        .then(() => props.history.push('/animals'));
+    }
+    else {
+      alert('You have to fill out all fields bro');
+    }
+  };
+
+  const validateFormValues = () => {
+    const { name, breed, customerId, locationId } = formValues;
+    return name && breed && customerId && locationId;
   };
 
   return (
@@ -52,7 +70,7 @@ export const AnimalForm = props => {
           placeholder="Breed"
           className="animalForm__breed"
           value={formValues.breed}
-          onChnage={handleFormChange}
+          onChange={handleFormChange}
         />
       </FormGroup>
 
@@ -79,7 +97,7 @@ export const AnimalForm = props => {
           onChange={handleFormChange}
         />
       </FormGroup>
-      <button type="submit" class="btn btn--create">Create Animal</button>
+      <button type="submit" className="btn btn--create">Create Animal</button>
     </form>  
   );
 };

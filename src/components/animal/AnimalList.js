@@ -18,7 +18,7 @@ export const AnimalList = props => {
   }, []);
 
   return (
-    <div class="animalsContainer">
+    <div className="animalsContainer">
       <h2 className="pageHeader">Animals</h2>
       <Link className="btn btn--create animalFormLink" to="/animals/create">Add Animal</Link>
       <section className="list animals">
