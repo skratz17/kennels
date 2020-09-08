@@ -21,16 +21,17 @@ export const EmployeeForm = props => {
   }, []);
 
   const createEmployee = () => {
-    const employee = {
-      name: employeeName,
-      locationId: location,
-      animalId: animal
-    };
-
     if(employeeName && location && animal) {
+      const employee = {
+        name: employeeName,
+        locationId: location,
+        animalId: animal
+      };
+
       addEmployee(employee)
         .then(() => props.history.push('/employees'));
     } 
+
     else {
       // todo better validation than this lmao
       alert('dude you gotta fill out all fields')
