@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { LocationProvider } from './location/LocationProvider';
 import { AnimalProvider } from './animal/AnimalProvider';
@@ -13,6 +13,12 @@ import { EmployeeForm } from './employee/EmployeeForm';
 
 export const ApplicationViews = props => (
   <>
+    <Route exact path="/logout" render={() => {
+      localStorage.removeItem('kennel_customer');
+      return <Redirect to="/login" />;
+    }}>
+    </Route>
+
     <LocationProvider>
       <Route exact path="/">
         <LocationList />
