@@ -7,6 +7,7 @@ import { CustomerProvider } from './customer/CustomerProvider';
 import { EmployeeProvider } from './employee/EmployeeProvider';
 import { LocationList } from './location/LocationList';
 import { AnimalList } from './animal/AnimalList';
+import { AnimalForm } from './animal/AnimalForm';
 import { CustomerList } from './customer/CustomerList';
 import { EmployeeList } from './employee/EmployeeList';
 import { EmployeeForm } from './employee/EmployeeForm';
@@ -31,6 +32,8 @@ export const ApplicationViews = props => (
           <Route exact path="/animals">
             <AnimalList />
           </Route>
+
+          <Route exact path="/animals/create" render={props => <AnimalForm {...props} />} />
         </CustomerProvider>
       </LocationProvider>
     </AnimalProvider>
