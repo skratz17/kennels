@@ -9,11 +9,11 @@ export const LocationDetail = props => {
       <address className="card__info location__address">{address}</address>
       <h4 className="location__animalsHeader">Animals</h4>
       <ul className="card__info location__animals">
-        { animals.map(a => <li className="location__animal">{a.name}</li>) }
+        { animals.map(a => <li key={a.id} className="location__animal">{a.name}</li>) }
       </ul>
       <h4 className="location__employeesHeader">Employees</h4>
       <ul className="card__info location__employees">
-        { employees.map(e => <li className="location__employee">{e.name}</li>) }
+        { employees.map(e => <li key={e.id} className="location__employee">{e.name}</li>) }
       </ul>
     </section>
   );
