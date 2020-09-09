@@ -12,6 +12,7 @@ import { CustomerList } from './customer/CustomerList';
 import { EmployeeList } from './employee/EmployeeList';
 import { EmployeeForm } from './employee/EmployeeForm';
 import { EmployeeDetail } from './employee/EmployeeDetail';
+import { LocationDetail } from './location/LocationDetail';
 
 export const ApplicationViews = props => (
   <>
@@ -22,9 +23,14 @@ export const ApplicationViews = props => (
     </Route>
 
     <LocationProvider>
-      <Route exact path="/">
-        <LocationList />
-      </Route>
+      <AnimalProvider>
+        <EmployeeProvider>
+          <Route exact path="/">
+            <LocationList />
+          </Route>
+            <Route path="/locations/:locationId(\d+)" component={LocationDetail} />
+        </EmployeeProvider>
+      </AnimalProvider>
     </LocationProvider>
 
     <AnimalProvider>
