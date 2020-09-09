@@ -47,6 +47,15 @@ address {
   padding: 1rem;
 }
 
+.cardLink {
+  text-decoration: none;
+  color: #000;
+}
+
+.cardLink .card:hover {
+  background-color: #eee;
+}
+
 .btn {
   padding: 0.5rem;
   border: none;

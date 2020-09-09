@@ -22,7 +22,11 @@ export const EmployeeList = props => {
         { 
           employees.map(e => {
             const location = locations.find(l => l.id === e.locationId) || {};
-            return <Employee key={e.id} employee={e} location={location} /> 
+            return (
+              <Link to={`/employees/${e.id}`} className="cardLink">
+                <Employee key={e.id} employee={e} location={location} /> 
+              </Link>
+            );
           })
         }
       </section>

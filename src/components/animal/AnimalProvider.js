@@ -9,7 +9,12 @@ export const AnimalProvider = props => {
     return fetch('http://localhost:8088/animals')
       .then(res => res.json())
       .then(setAnimals);
-  }
+  };
+
+  const getAnimalById = id => {
+    return fetch(`http://localhost:8088/animals/${id}?_expand=customer&_expand=location`)
+      .then(res => res.json());
+  };
 
   const addAnimal = animal => {
     return fetch('http://localhost:8088/animals', {
@@ -20,11 +25,11 @@ export const AnimalProvider = props => {
       body: JSON.stringify(animal)
     })
       .then(getAnimals);
-  }
+  };
 
   return (
     <AnimalContext.Provider value={{
-      animals, getAnimals, addAnimal 
+      animals, getAnimals, getAnimalById, addAnimal 
     }}>
       {props.children}
     </AnimalContext.Provider>
