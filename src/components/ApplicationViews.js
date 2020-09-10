@@ -46,6 +46,8 @@ export const ApplicationViews = props => (
           </Route>
 
           <Route path="/animals/create" render={props => <AnimalForm {...props} />} />
+
+          <Route path="/animals/edit/:animalId(\d+)" component={AnimalForm} />
         </CustomerProvider>
       </LocationProvider>
 
