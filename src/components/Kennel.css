@@ -68,3 +68,8 @@ address {
 .btn--create {
   background-color: #0cc70c;
 }
+
+.btn--delete {
+  background-color: #dd1515;
+  color: #fff;
+}
