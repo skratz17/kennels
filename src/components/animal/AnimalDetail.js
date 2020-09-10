@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AnimalContext } from './AnimalProvider';
 
 export const AnimalDetail = props => {
-  const { getAnimalById } = useContext(AnimalContext);
+  const { getAnimalById, deleteAnimal } = useContext(AnimalContext);
 
   const [ animal, setAnimal ] = useState({ location: '', customer: '' });
 
@@ -18,6 +18,15 @@ export const AnimalDetail = props => {
       <p className="card__info animal__breed">Breed: {animal.breed}</p>
       <p className="card__info animal__owner">Owner: {animal.customer.name}</p>
       <p className="card__info animal__location">Location: {animal.location.name}</p>
+
+      <button className="animal__delete btn btn--delete" 
+        onClick={() => {
+          deleteAnimal(animal.id);
+          props.history.push('/animals');
+        }}
+      >
+        Delete Animal
+      </button>
     </section>
   );
 };
