@@ -73,3 +73,7 @@ address {
   background-color: #dd1515;
   color: #fff;
 }
+
+.btn--edit {
+  background-color: #ccc;
+}

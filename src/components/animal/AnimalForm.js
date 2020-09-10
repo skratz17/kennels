@@ -7,16 +7,26 @@ import { FormGroup } from '../ui/forms/FormGroup';
 import { Select } from '../ui/forms/Select';
 
 export const AnimalForm = props => {
-  const { addAnimal } = useContext(AnimalContext);
+  const { animals, getAnimals, addAnimal, updateAnimal } = useContext(AnimalContext);
   const { customers, getCustomers } = useContext(CustomerContext);
   const { locations, getLocations } = useContext(LocationContext);
 
   const [ formValues, setFormValues ] = useState({ name: '', breed: '', customerId: '', locationId: '' });
 
+  const isEditMode = props.match.params.hasOwnProperty('animalId');
+
   useEffect(() => {
+    getAnimals();
     getCustomers();
     getLocations();
   }, []);
+
+  useEffect(() => {
+    if(isEditMode) {
+      const animal = animals.find(a => a.id === parseInt(props.match.params.animalId)) || {};
+      setFormValues(animal);
+    }
+  }, [ animals ]);
 
   const handleFormChange = e => {
     const field = e.target.name;
@@ -31,8 +41,14 @@ export const AnimalForm = props => {
 
   const createAnimal = () => {
     if(validateFormValues()) {
-      addAnimal(formValues)
-        .then(() => props.history.push('/animals'));
+      if(isEditMode) {
+        updateAnimal(formValues)
+          .then(() => props.history.push('/animals'));
+      }
+      else {
+        addAnimal(formValues)
+          .then(() => props.history.push('/animals'));
+      }
     }
     else {
       alert('You have to fill out all fields bro');

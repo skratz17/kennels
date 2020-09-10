@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 
 import { AnimalContext } from './AnimalProvider';
+import { Link } from 'react-router-dom';
 
 export const AnimalDetail = props => {
   const { getAnimalById, deleteAnimal } = useContext(AnimalContext);
@@ -21,12 +22,13 @@ export const AnimalDetail = props => {
 
       <button className="animal__delete btn btn--delete" 
         onClick={() => {
-          deleteAnimal(animal.id);
-          props.history.push('/animals');
+          deleteAnimal(animal.id)
+            .then(() => props.history.push('/animals'));
         }}
       >
         Delete Animal
       </button>
+      <Link to={`/animals/edit/${animal.id}`} className="btn btn--edit">Edit Animal</Link>
     </section>
   );
 };
