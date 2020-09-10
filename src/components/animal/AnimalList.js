@@ -39,9 +39,8 @@ export const AnimalList = props => {
             const location = locations.find(l => l.id === a.locationId) || {};
 
             return (
-              <Link to={`/animals/${a.id}`} className="cardLink">
-                <Animal key={a.id} 
-                  animal={a} 
+              <Link key={a.id} to={`/animals/${a.id}`} className="cardLink">
+                <Animal animal={a} 
                   customer={customer}
                   location={location}
                 />

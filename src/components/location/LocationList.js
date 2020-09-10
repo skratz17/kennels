@@ -24,11 +24,11 @@ export const LocationList = () => {
           l.employees = employees.filter(e => e.locationId === l.id);
 
           return (
-            <Link className="cardLink" to={{
+            <Link key={l.id} className="cardLink" to={{
               pathname: `/locations/${l.id}`,
               state: { chosenLocation: l }
             }}>
-              <Location key={l.id} location={l} />
+              <Location location={l} />
             </Link>
           );
         }
