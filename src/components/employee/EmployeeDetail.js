@@ -8,7 +8,7 @@ export const EmployeeDetail = props => {
     const [ animal, setAnimal ] = useState({});
     const [ location, setLocation ] = useState({});
 
-    const { employees, getEmployees } = useContext(EmployeeContext);
+    const { employees, getEmployees, deleteEmployee } = useContext(EmployeeContext);
     const { animals, getAnimals } = useContext(AnimalContext);
     const { locations, getLocations } = useContext(LocationContext);
 
@@ -38,6 +38,13 @@ export const EmployeeDetail = props => {
             <h3 className="card__header employee__name">{employee.name}</h3>
             <p className="card__info employee__workplace">Works at {location.name}</p>
             <p className="card__info employee__animal">Cares for {animal.name}</p>
+
+            <button className="btn btn--delete"
+                onClick={() => {
+                    deleteEmployee(employee.id)
+                        .then(() => props.history.push('/employees'));
+                }}
+            >Delete Employee</button>
         </section>
     );
 };
