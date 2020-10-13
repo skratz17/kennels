@@ -12,6 +12,7 @@ export const EmployeeForm = props => {
   const { animals, getAnimals } = useContext(AnimalContext);
 
   const [ employeeName, setEmployeeName ] = useState('');
+  const [ address, setAddress ] = useState('');
   const [ location, setLocation ] = useState('');
   const [ animal, setAnimal ] = useState('');
 
@@ -21,9 +22,10 @@ export const EmployeeForm = props => {
   }, []);
 
   const createEmployee = () => {
-    if(employeeName && location && animal) {
+    if(employeeName && address && location && animal) {
       const employee = {
         name: employeeName,
+        address: address,
         location_id: location,
         animal_id: animal
       };
@@ -50,6 +52,17 @@ export const EmployeeForm = props => {
           value={employeeName} 
           onChange={e => setEmployeeName(e.target.value)} 
           placeholder="Employee name"
+        />
+      </FormGroup>
+
+      <FormGroup>
+        <label htmlFor="address" className="employeeForm__label">Employee address:</label>
+        <input required 
+          type="text" 
+          className="employeeForm__address" 
+          value={address} 
+          onChange={e => setAddress(e.target.value)} 
+          placeholder="Employee address"
         />
       </FormGroup>
 
