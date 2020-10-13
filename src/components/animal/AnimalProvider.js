@@ -18,6 +18,8 @@ export const AnimalProvider = props => {
   };
 
   const addAnimal = animal => {
+    animal.status = 'Checked In';
+
     return fetch('http://localhost:8088/animals', {
       method: 'POST',
       headers: {

@@ -13,7 +13,7 @@ export const AnimalForm = props => {
 
   const [ formValues, setFormValues ] = useState({ name: '', breed: '', customer_id: '', location_id: '' });
 
-  const isEditMode = props.match.params.hasOwnProperty('animalId');
+  const isEditMode = props.match.params.hasOwnProperty('animal_id');
 
   useEffect(() => {
     getAnimals();
@@ -23,7 +23,7 @@ export const AnimalForm = props => {
 
   useEffect(() => {
     if(isEditMode) {
-      const animal = animals.find(a => a.id === parseInt(props.match.params.animalId)) || {};
+      const animal = animals.find(a => a.id === parseInt(props.match.params.animal_id)) || {};
       setFormValues(animal);
     }
   }, [ animals ]);

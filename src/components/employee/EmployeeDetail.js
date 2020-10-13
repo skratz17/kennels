@@ -24,7 +24,7 @@ export const EmployeeDetail = props => {
     }, [ employees ]);
 
     useEffect(() => {
-        const animal = animals.find(a => a.id === employee.animalId) || {};
+        const animal = animals.find(a => a.id === employee.animal_id) || {};
         setAnimal(animal);
     }, [ animals ]);
 

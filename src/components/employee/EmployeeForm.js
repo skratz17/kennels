@@ -25,7 +25,7 @@ export const EmployeeForm = props => {
       const employee = {
         name: employeeName,
         location_id: location,
-        animalId: animal
+        animal_id: animal
       };
 
       addEmployee(employee)

@@ -9,7 +9,7 @@ export const AnimalDetail = props => {
   const [ animal, setAnimal ] = useState({ location: '', customer: '' });
 
   useEffect(() => {
-    getAnimalById(props.match.params.animalId)
+    getAnimalById(props.match.params.animal_id)
       .then(setAnimal);
   }, []);
 
