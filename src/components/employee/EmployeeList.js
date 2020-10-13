@@ -21,7 +21,7 @@ export const EmployeeList = props => {
       <section className="list employees">
         { 
           employees.map(e => {
-            const location = locations.find(l => l.id === e.locationId) || {};
+            const location = locations.find(l => l.id === e.location_id) || {};
             return (
               <Link key={e.id} to={`/employees/${e.id}`} className="cardLink">
                 <Employee employee={e} location={location} /> 

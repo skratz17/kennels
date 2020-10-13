@@ -24,7 +24,7 @@ export const EmployeeForm = props => {
     if(employeeName && location && animal) {
       const employee = {
         name: employeeName,
-        locationId: location,
+        location_id: location,
         animalId: animal
       };
 

@@ -11,7 +11,7 @@ export const AnimalForm = props => {
   const { customers, getCustomers } = useContext(CustomerContext);
   const { locations, getLocations } = useContext(LocationContext);
 
-  const [ formValues, setFormValues ] = useState({ name: '', breed: '', customerId: '', locationId: '' });
+  const [ formValues, setFormValues ] = useState({ name: '', breed: '', customer_id: '', location_id: '' });
 
   const isEditMode = props.match.params.hasOwnProperty('animalId');
 
@@ -31,7 +31,7 @@ export const AnimalForm = props => {
   const handleFormChange = e => {
     const field = e.target.name;
     let value = e.target.value;
-    if(field === 'customerId' || field === 'locationId') value = parseInt(value);
+    if(field === 'customer_id' || field === 'location_id') value = parseInt(value);
 
     setFormValues(prevFormValues => ({
       ...prevFormValues,
@@ -56,8 +56,8 @@ export const AnimalForm = props => {
   };
 
   const validateFormValues = () => {
-    const { name, breed, customerId, locationId } = formValues;
-    return name && breed && customerId && locationId;
+    const { name, breed, customer_id, location_id } = formValues;
+    return name && breed && customer_id && location_id;
   };
 
   return (
@@ -91,25 +91,25 @@ export const AnimalForm = props => {
       </FormGroup>
 
       <FormGroup>
-        <label htmlFor="customerId" className="animalForm__label">Customer</label>
+        <label htmlFor="customer_id" className="animalForm__label">Customer</label>
         <Select className="animalForm__customer"
-          name="customerId"
-          id="customerId"
+          name="customer_id"
+          id="customer_id"
           placeholder="Select a customer"
           items={customers}
-          value={formValues.customerId}
+          value={formValues.customer_id}
           onChange={handleFormChange}
         />
       </FormGroup>
 
       <FormGroup>
-        <label htmlFor="locationId" className="animalForm__label">Location</label>
+        <label htmlFor="location_id" className="animalForm__label">Location</label>
         <Select className="animalForm__location"
-          name="locationId"
-          id="locationId"
+          name="location_id"
+          id="location_id"
           placeholder="Select a location"
           items={locations}
-          value={formValues.locationId}
+          value={formValues.location_id}
           onChange={handleFormChange}
         />
       </FormGroup>

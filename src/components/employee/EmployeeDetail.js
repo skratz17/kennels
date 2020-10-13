@@ -29,7 +29,7 @@ export const EmployeeDetail = props => {
     }, [ animals ]);
 
     useEffect(() => {
-        const location = locations.find(l => l.id === employee.locationId) || {};
+        const location = locations.find(l => l.id === employee.location_id) || {};
         setLocation(location);
     }, [ locations ]);
 

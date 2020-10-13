@@ -30,7 +30,7 @@ export const ApplicationViews = props => (
           <Route exact path="/">
             <LocationList />
           </Route>
-            <Route path="/locations/:locationId(\d+)" component={LocationDetail} />
+            <Route path="/locations/:location_id(\d+)" component={LocationDetail} />
         </EmployeeProvider>
       </AnimalProvider>
     </LocationProvider>
