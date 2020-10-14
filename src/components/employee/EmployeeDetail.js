@@ -24,12 +24,12 @@ export const EmployeeDetail = props => {
     }, [ employees ]);
 
     useEffect(() => {
-        const animal = animals.find(a => a.id === employee.animalId) || {};
+        const animal = animals.find(a => a.id === employee.animal_id) || {};
         setAnimal(animal);
     }, [ animals ]);
 
     useEffect(() => {
-        const location = locations.find(l => l.id === employee.locationId) || {};
+        const location = locations.find(l => l.id === employee.location_id) || {};
         setLocation(location);
     }, [ locations ]);
 

@@ -35,8 +35,8 @@ export const AnimalList = props => {
       <Link className="btn btn--create animalFormLink" to="/animals/create">Add Animal</Link>
       <section className="list animals">
         { filteredAnimals.map(a => {
-            const customer = customers.find(c => c.id === a.customerId) || {};
-            const location = locations.find(l => l.id === a.locationId) || {};
+            const customer = customers.find(c => c.id === a.customer_id) || {};
+            const location = locations.find(l => l.id === a.location_id) || {};
 
             return (
               <Link key={a.id} to={`/animals/${a.id}`} className="cardLink">

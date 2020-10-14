@@ -20,8 +20,8 @@ export const LocationList = () => {
   return (
     <section className="list locations">
       { locations.map(l => {
-          l.animals = animals.filter(a => a.locationId === l.id);
-          l.employees = employees.filter(e => e.locationId === l.id);
+          l.animals = animals.filter(a => a.location_id === l.id);
+          l.employees = employees.filter(e => e.location_id === l.id);
 
           return (
             <Link key={l.id} className="cardLink" to={{
